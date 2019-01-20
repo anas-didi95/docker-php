@@ -24,7 +24,7 @@ clear-code: down
 	mkdir code
 
 ## Laravel-specific commands
-create-laravel-project: up
+create-laravel-project: build
 	echo "create-laravel-project..."
 	echo "CREATE_LARAVEL=${CREATE_LARAVEL}"
 	docker-compose run --rm app ${CREATE_LARAVEL}
