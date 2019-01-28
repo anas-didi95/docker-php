@@ -16,3 +16,18 @@ services:
             - '/etc/passwd:/etc/passwd:ro'
             - '/etc/group:/etc/group:ro'
             - './code:/home/code'
+    
+    node:
+        build:
+            context: ./services/node
+            args:
+                DOCKER_USER_NAME: ${DOCKER_USER_NAME}
+                DOCKER_USER_ID: ${DOCKER_USER_ID}
+                DOCKER_GROUP_ID: ${DOCKER_GROUP_ID}
+        user: ${DOCKER_USER_ID}:${DOCKER_GROUP_ID}
+        tty: true
+        volumes:
+            - '/etc/passwd:/etc/passwd:ro'
+            - '/etc/group:/etc/group:ro'
+            - './code:/home/code'
+
