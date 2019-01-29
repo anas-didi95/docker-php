@@ -34,3 +34,8 @@ exec-app-serve: up
 	echo "HOST=${HOST}"
 	echo "PORT=${PORT}"
 	docker-compose exec app php artisan serve --host=${HOST} --port=${PORT}
+
+run-app-phpunit: up
+	echo "exec-app-phpunit..."
+	docker-compose run --rm app ./vendor/bin/phpunit --debug
+
